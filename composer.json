@@ -1,0 +1,13 @@
+{
+    "require": {
+        "symfony/console": "^3.0",
+        "symfony/process": "^3.0",
+        "guzzlehttp/guzzle":"*"
+    },
+    "autoload":{
+    	"psr-4":{
+    		"Betteryourweb\\":"betteryourweb/src/"
+    	}
+    }
+
+}
