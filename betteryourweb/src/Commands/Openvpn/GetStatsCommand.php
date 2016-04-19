@@ -36,8 +36,8 @@ class GetStatsCommand extends Command{
               ->render();
 		$routingTable = new Table($output);
 
-        $routingTable->setHeaders($status->stats['routing_tbl']['header'])
-              ->setRows($status->stats['routing_tbl']['routes'])
+        $routingTable->setHeaders($status->stats['routes']['header'])
+              ->setRows($status->stats['routes']['routes'])
               ->render();
 	}
 }
