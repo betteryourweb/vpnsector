@@ -2,7 +2,7 @@
 
 namespace Betteryourweb\Commands\Openvpn;
 
-use Symfony\Component\Console\Command\Command;
+use Betteryourweb\Commands\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -10,6 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Betteryourweb\Openvpn\Status;
 
 class GetStatsCommand extends Command{
+
 	public function configure () {
 		$this->setName('stats')
 			->setDescription("Get OpenVPN Stats");

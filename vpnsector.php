@@ -17,9 +17,6 @@ catch (Exception $exception)
 }
 $dbAdapter = new Betteryourweb\Commands\DatabaseAdapter($pdo);
 
-// $app->add(new Betteryourweb\Commands\ShowCommand($dbAdapter));
-// $app->add(new Betteryourweb\Commands\AddCommand($dbAdapter));
-// $app->add(new Betteryourweb\Commands\CompleteCommand($dbAdapter));
-$app->add(new Betteryourweb\Commands\Openvpn\GetStatsCommand);
+$app->add(new Betteryourweb\Commands\Openvpn\GetStatsCommand($dbAdapter));
 
 $app->run();
