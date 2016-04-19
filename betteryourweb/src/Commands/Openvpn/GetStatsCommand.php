@@ -29,10 +29,15 @@ class GetStatsCommand extends Command{
   //           'insert into tasks(description) values(:description)',
   //           compact('description')
   //       );
-		$table = new Table($output);
+		$clientTable = new Table($output);
 
-        $table->setHeaders($status->stats['clients']['header'])
+        $clientTable->setHeaders($status->stats['clients']['header'])
               ->setRows($status->stats['clients']['clients'])
+              ->render();
+		$routingTable = new Table($output);
+
+        $routingTable->setHeaders($status->stats['routing_tbl']['header'])
+              ->setRows($status->stats['routing_tbl']['routes'])
               ->render();
 	}
 }
