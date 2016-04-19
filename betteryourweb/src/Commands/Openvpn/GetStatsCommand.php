@@ -23,7 +23,11 @@ class GetStatsCommand extends Command{
 		
 		//
 		$status = new Status('/etc/openvpn/openvpn-status.log');
-		echo $status->toJson();
+		echo $status->toJson()['clients'];
+		$this->database->query(
+            'insert into tasks(description) values(:description)',
+            compact('description')
+        );
 
 	}
 }
