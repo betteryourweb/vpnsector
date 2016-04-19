@@ -8,6 +8,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Betteryourweb\Openvpn\Status;
+use Symfony\Component\Console\Helper\Table;
 
 class GetStatsCommand extends Command{
 
@@ -23,11 +24,15 @@ class GetStatsCommand extends Command{
 		
 		//
 		$status = new Status('/etc/openvpn/openvpn-status.log');
-		print_r($status->stats['clients']);
+		// print_r($status->stats['clients']);
 		// $this->database->query(
   //           'insert into tasks(description) values(:description)',
   //           compact('description')
   //       );
+		$table = new Table($output);
 
+        $table->setHeaders($status->stats['clients']['header'])
+              ->setRows($status->stats['clients']['clients'])
+              ->render();
 	}
 }
